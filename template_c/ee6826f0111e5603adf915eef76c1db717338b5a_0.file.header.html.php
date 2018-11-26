@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-23 05:42:13
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-26 13:08:53
   from "D:\wamp\www\miaosha\app\index\view\common\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bf793357ff440_82999205',
+  'unifunc' => 'content_5bfbf065d954e7_41702975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee6826f0111e5603adf915eef76c1db717338b5a' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\index\\view\\common\\header.html',
-      1 => 1542951732,
+      1 => 1543237379,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bf793357ff440_82999205 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bfbf065d954e7_41702975 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE>
 <html>
@@ -41,6 +41,9 @@ function content_5bf793357ff440_82999205 (Smarty_Internal_Template $_smarty_tpl)
         <link href="/static/css/main.css"  rel="stylesheet" type="text/css">
          <?php echo '<script'; ?>
  src="/static/js/main.js"><?php echo '</script'; ?>
+>
+		 <?php echo '<script'; ?>
+ src="/static/js/cart.js"><?php echo '</script'; ?>
 >
     </head>
     <body>

@@ -1,4 +1,7 @@
 {include file="../common/header.html" title="我的购物车"}
+<script>
+
+</script>
             <!--中间部分-->
                 
                 <div class="col-md-12" style="height:10px"></div>
@@ -22,15 +25,21 @@
                                 </select>
                             </p>
                             <p>
-                                <a class='btn btn-primary' >选中</a> <a class='btn btn-danger'>删除</a>
+                                <a class='btn btn-primary select-btn'  gid="{$v['id']}">选中</a> 
+								<a class='btn btn-warning unselect-btn'  gid="{$v['id']}" style="display:none">取消选中</a>
+								<a class='btn btn-danger' href="/index/cart/delete?gid={$v['id']}">删除</a>
                             </p>
                         </div>
+					{foreachelse}	
+						<center><h3>购物车暂无商品</h3></center>
                     {/foreach}    
-                    </div>
+                    </div> 
+					{if !empty($goods)}
                     <div class="clearfix" ></div>
                     <div class="text-center" style="margin-top:50px">
-                        <a class='btn btn-primary' >确认下单</a> <a class='btn btn-default'>清空购物车</a>
+                        <a class='btn btn-primary' >确认下单</a> <a class='btn btn-danger patch_delete' style="display:none">批量删除</a> <a class='btn btn-default' href="/index/cart/clear">清空购物车</a>
                     </div>
+					{/if}
                 </div>
                 <!--结束-->
 {include file="../common/footer.html"}                

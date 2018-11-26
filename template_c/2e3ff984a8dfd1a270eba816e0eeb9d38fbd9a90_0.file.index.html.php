@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-23 13:31:22
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-26 13:01:55
   from "D:\wamp\www\miaosha\app\index\view\cart\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bf8012a96a713_43948601',
+  'unifunc' => 'content_5bfbeec37d4ec0_97090370',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2e3ff984a8dfd1a270eba816e0eeb9d38fbd9a90' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\index\\view\\cart\\index.html',
-      1 => 1542979881,
+      1 => 1543237314,
       2 => 'file',
     ),
   ),
@@ -22,10 +22,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bf8012a96a713_43948601 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bfbeec37d4ec0_97090370 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"我的购物车"), 0, false);
 ?>
 
+<?php echo '<script'; ?>
+>
+
+<?php echo '</script'; ?>
+>
             <!--中间部分-->
                 
                 <div class="col-md-12" style="height:10px"></div>
@@ -58,20 +63,32 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
                                 </select>
                             </p>
                             <p>
-                                <a class='btn btn-primary' >选中</a> <a class='btn btn-danger'>删除</a>
+                                <a class='btn btn-primary select-btn'  gid="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">选中</a> 
+								<a class='btn btn-warning unselect-btn'  gid="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" style="display:none">取消选中</a>
+								<a class='btn btn-danger' href="/index/cart/delete?gid=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">删除</a>
                             </p>
                         </div>
-                    <?php
+					<?php
 }
+} else {
+?>
+	
+						<center><h3>购物车暂无商品</h3></center>
+                    <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 ?>
     
-                    </div>
+                    </div> 
+					<?php if (!empty($_smarty_tpl->tpl_vars['goods']->value)) {?>
                     <div class="clearfix" ></div>
                     <div class="text-center" style="margin-top:50px">
-                        <a class='btn btn-primary' >确认下单</a> <a class='btn btn-default'>清空购物车</a>
+                        <a class='btn btn-primary' >确认下单</a> <a class='btn btn-danger patch_delete' style="display:none">批量删除</a> <a class='btn btn-default' href="/index/cart/clear">清空购物车</a>
                     </div>
+					<?php }?>
                 </div>
                 <!--结束-->
 <?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

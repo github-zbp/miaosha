@@ -32,8 +32,49 @@
 			return_result(true);
 		}
 		
-		// public function test(){
-			// $this->cache->delete("cart-1");
-		// }
+		/*
+		* 清空购物车
+		*
+		*/
+		public function clear(){
+			$this->cache->set("cart-".$this->uid,[]);
+			
+			redirect("/index/cart/index");
+		}
+		
+		/*
+		* 删除购物车中某一商品
+		*
+		*/
+		public function delete(){
+			$gid=$_GET['gid'];
+			$cart_goods=$this->cache->get("cart-".$this->uid);
+			if($cart_goods && (($index=array_search(strval($gid),$cart_goods))!==false)){
+				unset($cart_goods[$index]);
+				$this->cache->set("cart-".$this->uid,$cart_goods);
+			}
+			redirect("/index/cart/index");
+		}
+		
+		/*
+		* 批量删除购物车中商品
+		*
+		*/
+		public function deletes(){
+			$gids=$_POST["gids"];
+			
+			if(!$gids){
+				return false;
+			}
+			$cart_goods=$this->cache->get("cart-".$this->uid);
+			foreach($gids as $k=>$v){
+				$key=array_search($v,$cart_goods);
+				// var_dump($key);
+				unset($cart_goods[$key]);
+				$this->cache->set("cart-".$this->uid,$cart_goods);
+			}
+			
+			return true;
+		}
     }
 ?>

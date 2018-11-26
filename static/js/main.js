@@ -1,6 +1,8 @@
 $(function(){
+	
 	var buy_btn=$(".buy-btn");
 	var cart_btn=$(".cart-btn");
+	
 	
 	//添加_debug=0是为了防止响应信息中含有调试信息
 	var question_url="/index/buy/question?_debug=0";
@@ -52,4 +54,6 @@ $(function(){
 			$("#modal").modal();
 		},"json");
 	});
+	
+	
 });

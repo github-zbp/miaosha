@@ -1,11 +1,11 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-23 11:13:23
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-26 13:08:53
   from "D:\wamp\www\miaosha\app\index\view\index\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bf7e0d3bd1b85_05513805',
+  'unifunc' => 'content_5bfbf065d5e9d0_48891450',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bf7e0d3bd1b85_05513805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bfbf065d5e9d0_48891450 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"秒杀商品列表"), 0, false);
 ?>
 
