@@ -5,7 +5,7 @@
     class base extends Crud
     {
         protected $prefix="ms_";
-        protected $table = "";
+        public $table = "";
         protected $pk = "";
         
         public function __construct($table="",$pk="id"){

@@ -1,6 +1,7 @@
 <?php 
     namespace app\common\model;
     use app\common\model\base;
+    use app\common\model\active;
     
     class goods extends base
     {
@@ -18,5 +19,15 @@
 			
 			return $res;
 		}
+        
+        public function getGoodsForOrder($gids){
+            $active=new active();
+            $active_table=$active->table;
+            $gids=implode(",",$gids);
+            $sql="select g.*,`time_begin`,`time_end`,a.`sys_status` `active_status` from `{$this->table}` g join `{$active_table}` a on a.id = g.active_id where g.id in ({$gids})";
+            $res=$this->db->query($sql);
+            
+            return $res;
+        }
     }
 ?>

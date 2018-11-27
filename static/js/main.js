@@ -24,6 +24,7 @@ $(function(){
 					html+="<p><label><input type='radio' name='item' value='"+ v +"'> "+v+" </label></p>";
 				});
 				html+="<input name='sign' type='hidden' value='"+ data.sign +"'>";
+                html+="<input name='ask' type='hidden' value='"+ data.ask +"'>";
 				html+="<input name='gid' type='hidden' value='"+ gid +"'>";
 				html+="<p><label>购买数量 : <select name='num'>";
 				for(var i=1;i<=max_num;i++){

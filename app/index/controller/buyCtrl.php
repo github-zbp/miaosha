@@ -6,7 +6,10 @@
 	
 	class buyCtrl extends baseCtrl
 	{
-		protected $checkAction=["question"=>"needLoginAjax"];
+		protected $checkAction=[
+        "question"=>"needLoginAjax",
+        "order"=>"needLogin"
+        ];
 		
 		/*
 		* 用于ajax请求,返回问题
@@ -25,5 +28,16 @@
 			echo $question;
 			
 		}
+        
+        /*
+        * 处理下单请求
+        * 传参有：sign gid/gids num item(问题答案)
+        */
+        public function order(){
+            //验证问题回答正确否
+            s_buy::checkQuestion();
+            
+            //验证商品
+        }
 	}
 ?>
