@@ -2,17 +2,19 @@
     namespace app\index\controller;
     use core\lib\Controller;
     use core\lib\Datasource as ds;
+    use app\common\model\active as m_active;
+    
     class baseCtrl extends Controller{
 		protected $cache=null;
 		protected $checkAction=[];	//用于检验是否有权限访问某些控制器的方法,里面存储方法名,访问$checkLogin中的方法名必须通过某指定方法的验证才行
 		protected $uid;
 		protected $user=null;	//存储登陆的用户信息
-		
+		protected $active=null; //保存当前上线活动信息
         //核心的Controller类是没有构造函数的
         public function __construct(){
             parent::__construct();
             
-            //定义后台栏目
+            //定义前台栏目
             $nav=[
                 "index"=>[
                     "name"=>"首页",
@@ -33,8 +35,14 @@
                 $nav[self::$controller]["active"]=true;
             }
             
+            $this->cache=ds::getCache();
+            
+            //获取正在上线的活动
+            $m_active=new m_active();
+            $this->active=$m_active->getActiveOnline();
+            $this->assign(["active"=>$this->active]);
+            
 			//验证用户是否登陆
-			$this->cache=ds::getCache();
 			if(isset($_COOKIE['uid'])){
 				$this->uid=$_COOKIE['uid'];
 				if($user=$this->cache->get("user-".$this->uid)){

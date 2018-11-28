@@ -148,7 +148,7 @@
                 showMsg(["errno"=>'106',"errmsg"=>"用户ip发生更换"]);
             }
             
-            if($que_info["now"]+300 < time()){
+            if($que_info["now"]+120 < time()){
                 showMsg(['errno'=>'501','errmsg'=>"答题超时"]);
             }
             
@@ -160,7 +160,7 @@
             return true;
         }
         
-        public static function checkGoods(){
+        public static function checkGoods($active){
             try{
                 $gids=isset($_POST['gid'])?[$_POST['gid']]:$_POST["gids"];
                 $num=$_POST['num'];
@@ -179,7 +179,20 @@
                 if($v["time_end"]<time()
                 || $v["time_begin"]>time()
                 || $v["active_status"] != 1){
-                    showMsg("errno"=>201,"errmsg"=>"商品{$v['title']}对应的活动未上线或已下线");
+                    showMsg(["errno"=>201,"errmsg"=>"商品{$v['title']}对应的活动未上线或已下线"]);
+                }
+            }
+            
+            //验证用户是否超量购买
+            $cache=ds::getCache();
+            $history=$cache->get("miaosha_history_".$_COOKIE['uid']."_aid".$active['id']);
+            
+            /*
+            * history中记载着用户本次活动秒杀商品的gid和对应数量
+            */
+            if(!$history){
+                foreach($history as $gid=>$num){
+                    
                 }
             }
             

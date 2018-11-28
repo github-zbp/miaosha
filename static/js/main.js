@@ -31,7 +31,7 @@ $(function(){
 					html+="<option value='"+i+"'>"+i+"</option>";
 				}
 				html+="</select></p>";
-				$(".modal-body form").html(html);
+				$(".modal-body").html(html);
 			}
 			
 			

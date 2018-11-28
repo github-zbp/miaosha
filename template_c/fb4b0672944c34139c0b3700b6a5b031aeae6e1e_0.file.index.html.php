@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-27 02:06:22
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-28 04:49:55
   from "F:\wamp\www\miaosha\app\index\view\index\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bfca69e2f6567_33009447',
+  'unifunc' => 'content_5bfe1e731fbe98_17324862',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb4b0672944c34139c0b3700b6a5b031aeae6e1e' => 
     array (
       0 => 'F:\\wamp\\www\\miaosha\\app\\index\\view\\index\\index.html',
-      1 => 1543283924,
+      1 => 1543380593,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bfca69e2f6567_33009447 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bfe1e731fbe98_17324862 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"秒杀商品列表"), 0, false);
 ?>
 
-
+<?php echo '<script'; ?>
+ src="/static/js/main.js"><?php echo '</script'; ?>
+>
             <!--中间部分-->
                 
                 <div class="col-md-12" style="height:10px"></div>
@@ -83,17 +85,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 				<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 					  <div class="modal-dialog" role="document">
 						<div class="modal-content">
-						  
+						  <form method="post" action="/index/buy/order">
 						  <div class="modal-body">
-							<form method="post" action="index/buy/buy">
-								
-							</form>
+							
 						  </div>
 						  <div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							<button type="button" class="btn btn-primary">提交</button>
+							<button type="submit" class="btn btn-primary">提交</button>
 						  </div>
-						</div><!-- /.modal-content -->
+						</div>
+                        </form><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 				<!--结束-->

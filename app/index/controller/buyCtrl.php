@@ -38,6 +38,8 @@
             s_buy::checkQuestion();
             
             //验证商品
+            $goods=s_buy::checkGoods($this->active);
+            var_dump($goods);
         }
 	}
 ?>

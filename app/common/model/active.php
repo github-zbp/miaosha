@@ -6,7 +6,7 @@
     class active extends base
     {
         public function getActiveInUse(){
-            $sql="select * from `{$this->table}` where sys_status = :sys_status and time_end > :now order by `{$this->pk}` desc";
+            $sql="select * from `{$this->table}` where sys_status = :sys_status and time_end > :now limit 1";
             
             $params=["sys_status"=>e_active::ONLINE,"now"=>time()];
             
@@ -26,5 +26,15 @@
             
             return $ids;
 		}
+        
+        public function getActiveOnline(){
+            $sql="select * from `{$this->table}` where sys_status = :sys_status  limit 1";
+            
+            $params=["sys_status"=>e_active::ONLINE];
+            
+            $res=$this->db->row($sql,$params);
+			
+            return $res;
+        }
     }
 ?>
