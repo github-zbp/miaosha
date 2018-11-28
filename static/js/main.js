@@ -15,6 +15,7 @@ $(function(){
 		
 		//拉取问题
 		$.post(question_url,{"aid":aid},function(data){
+			
 			if(data.errno){
 				var html="<center><h4>"+data.errmsg+"</h4></center>";
 				$(".modal-content").html(html);

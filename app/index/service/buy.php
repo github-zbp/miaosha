@@ -163,7 +163,7 @@
         public static function checkGoods(){
             try{
                 $gids=isset($_POST['gid'])?[$_POST['gid']]:$_POST["gids"];
-                $num=$_POST['num'];
+                $num=isset($_POST['num'])?[$_POST['num']]:$_POST["nums"];;
             }catch(\Exception $e){
                 showMsg(["errno"=>999,"errmsg"=>"商品参数接收失败"]);
             }
@@ -176,12 +176,15 @@
                 ){
                     showMsg(["errno"=>301,"errmsg"=>"商品{$v['title']}未上线或已下线"]);
                 }
-                if($v["time_end"]<time()
-                || $v["time_begin"]>time()
+                if($v["time_end"] < time()
+                || $v["time_begin"] > time()
                 || $v["active_status"] != 1){
-                    showMsg("errno"=>201,"errmsg"=>"商品{$v['title']}对应的活动未上线或已下线");
+                    showMsg(["errno"=>201,"errmsg"=>"商品{$v['title']}对应的活动未上线或已下线"]);
                 }
             }
+			
+			//验证用户是否超量购买
+			
             
             return $goods;
         }
