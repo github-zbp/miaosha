@@ -27,7 +27,11 @@
             $sql="select g.*,`time_begin`,`time_end`,a.`sys_status` `active_status` from `{$this->table}` g join `{$active_table}` a on a.id = g.active_id where g.id in ({$gids})";
             $res=$this->db->query($sql);
             
-            return $res;
+			foreach($res as $k=>$v){
+				$goods[$v['id']]=$v;
+			}
+			
+            return $goods;
         }
     }
 ?>

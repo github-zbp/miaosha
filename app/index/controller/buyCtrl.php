@@ -3,6 +3,7 @@
 	use app\index\controller\baseCtrl;
 	use app\common\model\question as m_question;
 	use app\index\service\buy as s_buy;
+	use app\index\service\order as s_order;
 	
 	class buyCtrl extends baseCtrl
 	{
@@ -38,9 +39,12 @@
             s_buy::checkQuestion();
             
             //验证商品
-			$goods=s_buy::checkGoods();
+            $goods=s_buy::checkGoods($this->active);
 			
-			var_dump($goods);
+			//生成订单
+			s_order::createOrder($goods);
+            return_result($goods);
+
         }
 	}
 ?>

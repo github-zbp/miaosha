@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-27 02:14:08
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-28 04:49:23
   from "F:\wamp\www\miaosha\app\index\view\cart\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bfca870af0126_92370752',
+  'unifunc' => 'content_5bfe1e535f0590_11001042',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2c1c23c1dd4fff02db48ebf1ea3d6f04bc541d1' => 
     array (
       0 => 'F:\\wamp\\www\\miaosha\\app\\index\\view\\cart\\index.html',
-      1 => 1543283924,
+      1 => 1543380551,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bfca870af0126_92370752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bfe1e535f0590_11001042 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"我的购物车"), 0, false);
 ?>
 
 <?php echo '<script'; ?>
->
-
-<?php echo '</script'; ?>
+ src="/static/js/cart.js"><?php echo '</script'; ?>
 >
             <!--中间部分-->
                 
@@ -56,10 +54,21 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
                             <p>库存:<?php echo $_smarty_tpl->tpl_vars['v']->value['num_left'];?>
 </p>
                             <p>数量:
-                                <select>
-                                    
-									<option value="">1</option>
-                                    
+                            
+                                <select name="num" gid="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">
+                                <?php
+$_smarty_tpl->tpl_vars['num'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['num']->step = 1;$_smarty_tpl->tpl_vars['num']->total = (int) ceil(($_smarty_tpl->tpl_vars['num']->step > 0 ? $_smarty_tpl->tpl_vars['v']->value['num_user']+1 - (1) : 1-($_smarty_tpl->tpl_vars['v']->value['num_user'])+1)/abs($_smarty_tpl->tpl_vars['num']->step));
+if ($_smarty_tpl->tpl_vars['num']->total > 0) {
+for ($_smarty_tpl->tpl_vars['num']->value = 1, $_smarty_tpl->tpl_vars['num']->iteration = 1;$_smarty_tpl->tpl_vars['num']->iteration <= $_smarty_tpl->tpl_vars['num']->total;$_smarty_tpl->tpl_vars['num']->value += $_smarty_tpl->tpl_vars['num']->step, $_smarty_tpl->tpl_vars['num']->iteration++) {
+$_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration == 1;$_smarty_tpl->tpl_vars['num']->last = $_smarty_tpl->tpl_vars['num']->iteration == $_smarty_tpl->tpl_vars['num']->total;?>    
+									<option value="<?php echo $_smarty_tpl->tpl_vars['num']->value;?>
+" <?php if ($_smarty_tpl->tpl_vars['num']->value == 1) {?>selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['num']->value;?>
+</option>
+                                <?php }
+}
+?>
+    
                                 </select>
                             </p>
                             <p>
@@ -86,10 +95,28 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 					<?php if (!empty($_smarty_tpl->tpl_vars['goods']->value)) {?>
                     <div class="clearfix" ></div>
                     <div class="text-center" style="margin-top:50px">
-                        <a class='btn btn-primary' >确认下单</a> <a class='btn btn-danger patch_delete' style="display:none">批量删除</a> <a class='btn btn-default' href="/index/cart/clear">清空购物车</a>
+                        <button class='btn btn-primary cart-order' aid="<?php echo $_smarty_tpl->tpl_vars['active']->value['id'];?>
+">确认下单</button> <a class='btn btn-danger patch_delete' style="display:none">批量删除</a> <a class='btn btn-default' href="/index/cart/clear">清空购物车</a>
                     </div>
 					<?php }?>
                 </div>
+                
+                <!--模态框-->
+				<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content">
+						  <form method="post" action="/index/buy/order">
+						  <div class="modal-body">
+							
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="submit" class="btn btn-primary">提交</button>
+						  </div>
+						</div>
+                        </form><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
                 <!--结束-->
 <?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

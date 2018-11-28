@@ -7,6 +7,8 @@ $(function(){
 	//添加_debug=0是为了防止响应信息中含有调试信息
 	var question_url="/index/buy/question?_debug=0";
 	var cart_url="/index/cart/add?_debug=0";
+	var cart_order_url="/index/buy/order?_debug=0";
+	var params_order={};
 	
 	buy_btn.click(function(){
 		var gid=$(this).attr("gid");
@@ -15,7 +17,8 @@ $(function(){
 		
 		//拉取问题
 		$.post(question_url,{"aid":aid},function(data){
-			
+			// alert(123);
+			// data=$.parseJSON(data);
 			if(data.errno){
 				var html="<center><h4>"+data.errmsg+"</h4></center>";
 				$(".modal-content").html(html);
@@ -24,20 +27,43 @@ $(function(){
 				$.each(data.items,function(i,v){
 					html+="<p><label><input type='radio' name='item' value='"+ v +"'> "+v+" </label></p>";
 				});
-				html+="<input name='sign' type='hidden' value='"+ data.sign +"'>";
-                html+="<input name='ask' type='hidden' value='"+ data.ask +"'>";
-				html+="<input name='gid' type='hidden' value='"+ gid +"'>";
+				// html+="<input name='sign' type='hidden' value='"+ data.sign +"'>";
+                // html+="<input name='ask' type='hidden' value='"+ data.ask +"'>";
+				// html+="<input name='gid' type='hidden' value='"+ gid +"'>";
 				html+="<p><label>购买数量 : <select name='num'>";
 				for(var i=1;i<=max_num;i++){
-					html+="<option value='"+i+"'>"+i+"</option>";
+					if(i==1){
+						html+="<option value='"+i+"' selected>"+i+"</option>";
+					}else{
+						html+="<option value='"+i+"'>"+i+"</option>";
+					}
+					
 				}
 				html+="</select></p>";
-				$(".modal-body form").html(html);
+				$(".modal-body").html(html);
+				params_order.sign=data.sign;
+				params_order.ask=data.ask;
+				goods_num=$("#modal select").val();
+				params_order.goods={gid:goods_num};
 			}
 			
 			
 			$("#modal").modal();
 		},"json");
+		
+	});
+	
+	$(".submit-order").click(function(){
+		params_order.item=$("#modal").find("input[type=radio]:checked").val();
+		if(!params_order.item){
+			alert("请选择一个选项");
+			return false;
+		}
+		
+		console.log(params_order);
+		$.post(cart_order_url,params_order,function(data){
+			
+		});
 	});
 	
 	cart_btn.click(function(){
@@ -54,7 +80,7 @@ $(function(){
 			
 			$(".modal-content").html(html);
 			$("#modal").modal();
-		},"json");
+		});
 	});
 	
 	
