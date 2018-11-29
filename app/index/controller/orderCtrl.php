@@ -9,13 +9,23 @@
 		
         public function index(){
             $m_order=new m_order();
-            $orders=$m_order->all();
+            $orders=$m_order->all(['uid'=>$this->uid]);
+			$description=[];
             foreach($orders as $k=>$v){
                 $orders[$k]["goods_info"]=array_values(json_decode($v["goods_info"],true));
+				
+				$description[$k]="";
+				
+				foreach($orders[$k]["goods_info"] as $key=>$value){
+					$description[$k].="<p>".$value["title"]." * ".$value["buy_num"]."</p>";
+				}
             }
+			
             
-            $this->display("index",["orders"=>$orders]);
+            $this->display("index",["orders"=>$orders,"description"=>$description]);
         }
         
+		
+		
     }
 ?>

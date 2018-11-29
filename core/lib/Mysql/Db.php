@@ -116,6 +116,7 @@ class Db
         
         switch(strtolower($statement)){
             case "select":
+			case "show":
                  //获取结果集
                 $res=$this->stat->fetchAll($mode);
 				

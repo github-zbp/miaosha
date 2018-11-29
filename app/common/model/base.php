@@ -18,6 +18,13 @@
             
             $this->table=$this->prefix.$table;
             $this->pk=$pk;
+			
+			//设置该表的所有字段名存入$this->fields
+			$sqlForFields="show columns from `{$this->table}`";
+			$res=$this->db->query($sqlForFields,[],\PDO::FETCH_NUM);
+			foreach($res as $k => $v){
+				$this->fields[]=$v[0];
+			}
         }
     }
 ?>

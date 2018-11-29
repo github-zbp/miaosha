@@ -3,7 +3,7 @@
 	use app\index\controller\baseCtrl;
 	use app\common\model\question as m_question;
 	use app\index\service\buy as s_buy;
-	// use app\index\service\order as s_order;
+	use app\index\service\order as s_order;
 	
 	class buyCtrl extends baseCtrl
 	{
@@ -42,8 +42,11 @@
             $goods=s_buy::checkGoods($this->active);
 			
 			//生成订单
-			s_order::createOrder($goods);
+			s_order::createOrder($this->active['id'],$this->uid,$goods);
             
+			//去除购物车缓存
+			$this->cache->set("cart-".$this->uid,[]);
+			
             echo true;
 
         }

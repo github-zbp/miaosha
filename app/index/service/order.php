@@ -36,9 +36,9 @@
         private static function makeOrderNo($goods_info){
             $json=json_encode($goods_info);
             $alphaArr=["A","B","C","D","E"];
-            $alpha=$alphaArr[rand(0,count($alpha)-1)];
+            $alpha=$alphaArr[rand(0,count($alphaArr)-1)];
             
-            return $alpha.date("ymd").substr($json,0,6);
+            return $alpha.date("ymd").substr(md5($json),0,6);
         }
 	}
 ?>

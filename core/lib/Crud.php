@@ -9,10 +9,10 @@
     class Crud
     {
         //存储Db实例
-        protected $db;
+        protected $db=null;
         
         //存储该数据表的所有字段
-        protected $fields;
+        protected $fields=[];
         
         //存储当前一条数据的各字段的值，可以只含该表的部分字段
         protected $vals;
@@ -33,7 +33,7 @@
             if(is_int($data)){
                 $this->get($data);
             }
-            
+			
             $this->setVals($data);
         }
         
@@ -175,7 +175,14 @@
                 $params=[];
             }
             
-            $sql="select * from `{$this->table}` where {$whereSql}";
+			if(trim($whereSql)){
+				$sql="select * from `{$this->table}` where {$whereSql}";
+			}else{
+				$sql="select * from `{$this->table}`";
+			}
+            
+			
+			// var_dump($sql);
             return $this->db->query($sql,$params);
         }
 

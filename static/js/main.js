@@ -44,7 +44,8 @@ $(function(){
 				params_order.sign=data.sign;
 				params_order.ask=data.ask;
 				goods_num=$("#modal select").val();
-				params_order.goods={gid:goods_num};
+				params_order.goods={};
+				params_order.goods[gid]=goods_num;
 			}
 			
 			

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-26 12:43:18
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 06:38:51
   from "D:\wamp\www\miaosha\app\index\view\common\footer.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bfbea66c69fb9_80985271',
+  'unifunc' => 'content_5bff897b00bc64_55252493',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bfbea66c69fb9_80985271 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bff897b00bc64_55252493 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 </div>
         
