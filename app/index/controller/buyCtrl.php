@@ -3,7 +3,7 @@
 	use app\index\controller\baseCtrl;
 	use app\common\model\question as m_question;
 	use app\index\service\buy as s_buy;
-	use app\index\service\order as s_order;
+	// use app\index\service\order as s_order;
 	
 	class buyCtrl extends baseCtrl
 	{
@@ -43,7 +43,8 @@
 			
 			//生成订单
 			s_order::createOrder($goods);
-            return_result($goods);
+            
+            echo true;
 
         }
 	}

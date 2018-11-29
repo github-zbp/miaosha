@@ -1,15 +1,15 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 01:25:07
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 03:26:16
   from "F:\wamp\www\miaosha\app\index\view\common\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bff3ff37af571_00825565',
+  'unifunc' => 'content_5bff5c58677062_17560800',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8dc99f8bad0d283388298ef5fea079f27d36be35' => 
+    '9b4bda40d619cc732abcff0c9ee451883ebcd95c' => 
     array (
       0 => 'F:\\wamp\\www\\miaosha\\app\\index\\view\\common\\header.html',
       1 => 1543454628,
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bff3ff37af571_00825565 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bff5c58677062_17560800 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE>
 <html>

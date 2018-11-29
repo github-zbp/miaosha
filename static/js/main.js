@@ -62,7 +62,13 @@ $(function(){
 		
 		console.log(params_order);
 		$.post(cart_order_url,params_order,function(data){
-			
+			data=$.parseJSON(data);
+			if(data.errno){
+				alert("errno:"+data.errno+" errmsg:"+data.errmsg);
+				location.href=location.href;
+			}else{
+				location.href="/index/order/index";
+			}
 		});
 	});
 	

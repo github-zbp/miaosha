@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-28 04:49:23
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 02:38:55
   from "F:\wamp\www\miaosha\app\index\view\cart\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bfe1e535f0590_11001042',
+  'unifunc' => 'content_5bff513f705a16_97284025',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2c1c23c1dd4fff02db48ebf1ea3d6f04bc541d1' => 
     array (
       0 => 'F:\\wamp\\www\\miaosha\\app\\index\\view\\cart\\index.html',
-      1 => 1543380551,
+      1 => 1543459095,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bfe1e535f0590_11001042 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bff513f705a16_97284025 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"我的购物车"), 0, false);
 ?>
 
@@ -111,7 +111,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 						  </div>
 						  <div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							<button type="submit" class="btn btn-primary">提交</button>
+							<button type="button" class="btn btn-primary  submit-order">提交</button>
 						  </div>
 						</div>
                         </form><!-- /.modal-content -->

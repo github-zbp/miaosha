@@ -23,6 +23,9 @@
         //存储表名
         protected $table;
         
+        //创建数据的时间字段
+        protected $create_time_field="";
+        
         //可以传id或者数据
         public function __construct($db='master',$data=0){
             $this->setDb($db);
@@ -121,6 +124,9 @@
         *
         */
         public function create($data=[]){
+            if($this->create_time_field && !isset($data[$this->create_time_field])){
+                $data[$this->create_time_field]=time();
+            }
             $this->setVals($data);
             
             if(isset($this->vals[$this->pk])){

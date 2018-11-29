@@ -20,7 +20,8 @@
 			return $res;
 		}
         
-        public function getGoodsForOrder($gids){
+        public function getGoodsForOrder($goods_params){
+            $gids=array_keys($goods_params);
             $active=new active();
             $active_table=$active->table;
             $gids=implode(",",$gids);
@@ -29,6 +30,7 @@
             
 			foreach($res as $k=>$v){
 				$goods[$v['id']]=$v;
+                $goods[$v['id']]["buy_num"]=$goods_params[$v['id']];
 			}
 			
             return $goods;

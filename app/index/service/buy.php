@@ -166,12 +166,10 @@
             }catch(\Exception $e){
                 return_result(["errno"=>999,"errmsg"=>"商品参数接收失败"]);
             }
-            
-			$gids=array_keys($goods_params);
 			
             //验证商品状态和上下线时间
             $m_goods=new m_goods();
-            $goods=$m_goods->getGoodsForOrder($gids);
+            $goods=$m_goods->getGoodsForOrder($goods_params);
             foreach($goods as $k=>$v){
                 if($v["sys_status"] != 1
                 ){
@@ -200,7 +198,7 @@
             }
 			
             //检验库存
-			self::checkGoodsStock($goods_params,$goods_info);
+			self::checkGoodsStock($goods_params,$goods);
 			
             return $goods;
         }
@@ -210,13 +208,12 @@
 		*/
         private static function checkGoodsStock($goods_params,$goods_info=[]){
 			if(!$goods_info){
-				$gids=array_keys($goods_params);
 				$m_goods=new m_goods();
-				$goods_info=$m_goods->getGoodsForOrder($gids);
+				$goods_info=$m_goods->getGoodsForOrder($goods_params);
 			}
 			
 			$short_goods_name="";
-			foreach($goods_info as $k=>$V){
+			foreach($goods_info as $k=>$v){
 				if($v['num_left']<$goods_params[$k]){
 					$short_goods_name.=$v['title'].",";
 				}

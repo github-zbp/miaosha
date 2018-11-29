@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-28 04:49:24
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 01:25:24
   from "F:\wamp\www\miaosha\app\index\view\common\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bfe1e54cde1d7_93739392',
+  'unifunc' => 'content_5bff4004a148c9_63231328',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1df14b206a49dbb184e9a90dcbd377e5e3c9a9f0' => 
     array (
       0 => 'F:\\wamp\\www\\miaosha\\app\\index\\view\\common\\header.html',
-      1 => 1543380547,
+      1 => 1543454628,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bfe1e54cde1d7_93739392 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bff4004a148c9_63231328 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE>
 <html>
@@ -34,9 +34,6 @@ function content_5bfe1e54cde1d7_93739392 (Smarty_Internal_Template $_smarty_tpl)
 >
         <?php echo '<script'; ?>
  src="/static/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="http://cdn.bootcss.com/holder/2.9.4/holder.min.js"><?php echo '</script'; ?>
 >
         <link href="/static/css/main.css"  rel="stylesheet" type="text/css">
          

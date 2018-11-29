@@ -7,6 +7,7 @@
         protected $prefix="ms_";
         public $table = "";
         protected $pk = "";
+        protected $create_time_field="sys_dateline";
         
         public function __construct($table="",$pk="id"){
         parent::__construct();
