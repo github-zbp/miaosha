@@ -111,12 +111,14 @@
                     $set.="`{$k}`=:{$k},";
                 }
             }
+			
             $set=rtrim($set,",");
-            
+            $columns[$this->pk]=$this->vals[$this->pk];
             if(count($columns)>0){
-                $sql="update `{$this->table}` set {$set} where `{$this->pk}`=:{$this->pk}";
+                $sql="update `{$this->table}` set {$set} where `{$this->pk}`=:{$this->pk}";var_dump($sql,$columns);
                 return $this->db->query($sql,$columns);
             }
+			
         }
         
         /*
