@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 07:14:47
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 06:21:46
   from "D:\wamp\www\miaosha\app\index\view\index\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bff91e75dcc58_98434585',
+  'unifunc' => 'content_5c00d6fa706c25_44804495',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2e914a75dd600a4701a8fb73acbf5240d3c9b18c' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\index\\view\\index\\index.html',
-      1 => 1543470801,
+      1 => 1543558905,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bff91e75dcc58_98434585 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c00d6fa706c25_44804495 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"秒杀商品列表"), 0, false);
 ?>
 
@@ -33,6 +33,7 @@ $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cac
                 
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
+				<?php if ($_smarty_tpl->tpl_vars['goods']->value) {?>
 				<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['goods']->value, 'v', false, 'k');
 if ($_from !== null) {
@@ -97,6 +98,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
                         </form><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
+				<?php } else { ?>
+					<center><h3>暂无秒杀活动</h3></center>
+				<?php }?>
 				<!--结束-->
 <?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

@@ -63,6 +63,7 @@ $(function(){
 		
 		console.log(params_order);
 		$.post(cart_order_url,params_order,function(data){
+			// console.log(data);
 			data=$.parseJSON(data);
 			if(data.errno){
 				alert("errno:"+data.errno+" errmsg:"+data.errmsg);

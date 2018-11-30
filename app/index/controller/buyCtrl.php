@@ -4,6 +4,7 @@
 	use app\common\model\question as m_question;
 	use app\index\service\buy as s_buy;
 	use app\index\service\order as s_order;
+	use app\common\model\order as m_order;
 	
 	class buyCtrl extends baseCtrl
 	{
@@ -50,5 +51,40 @@
             echo true;
 
         }
+		
+		public function prepay(){
+			//先检查库存是否充足
+			$m_order=new m_order();
+			$order=$m_order->get($_POST['id']);
+			$goods_params=s_buy::getGoodsParams($order);
+			s_buy::checkGoodsStock($goods_params);
+			
+			return_result($order);
+		}
+		
+		/*
+		*  微信支付 生成二维码
+		*
+		*/
+		public function pay(){
+			$m_order=new m_order();
+			$order=$m_order->get($_GET['id']);
+			
+			//生成并返回二维码
+			s_buy::returnQrcode($order);
+			
+		}
+		
+		public function paid(){
+			if(!isset($_POST['id'])){
+				echo false;
+				die;
+			}
+			
+			//完成订单
+			s_buy::paidOrder($_POST['id']);
+			
+			echo true;
+		}
 	}
 ?>

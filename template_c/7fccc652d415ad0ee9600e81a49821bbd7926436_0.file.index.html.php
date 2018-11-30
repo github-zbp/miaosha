@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 07:25:08
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 12:48:22
   from "D:\wamp\www\miaosha\app\index\view\order\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bff94544a8fa7_42467018',
+  'unifunc' => 'content_5c013196ac5f20_06527487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7fccc652d415ad0ee9600e81a49821bbd7926436' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\index\\view\\order\\index.html',
-      1 => 1543476274,
+      1 => 1543581340,
       2 => 'file',
     ),
   ),
@@ -22,8 +22,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bff94544a8fa7_42467018 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"秒杀商品列表"), 0, false);
+function content_5c013196ac5f20_06527487 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"秒杀商品订单列表"), 0, false);
 ?>
 
 <?php echo '<script'; ?>
@@ -42,21 +42,36 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
 ?>
-                            <tr><td><?php echo $_smarty_tpl->tpl_vars['v']->value['order_no'];?>
+                            <tr>
+								<td><?php echo $_smarty_tpl->tpl_vars['v']->value['order_no'];?>
 </td><td width="200"><img src="/static/images/<?php echo $_smarty_tpl->tpl_vars['v']->value['goods_info'][0]['img'];?>
 "  height="200"></td>
-							<td style="line-height:18px">
-							<?php if ($_smarty_tpl->tpl_vars['description']->value) {?>
-								<?php echo $_smarty_tpl->tpl_vars['description']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+								<td style="line-height:18px">
+								<?php if ($_smarty_tpl->tpl_vars['description']->value) {?>
+									<?php echo $_smarty_tpl->tpl_vars['description']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 
-							<?php }?>
-							</td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['price_discount'];?>
+								<?php }?>
+								</td>
+								<td><?php echo $_smarty_tpl->tpl_vars['v']->value['price_discount'];?>
  / <?php echo $_smarty_tpl->tpl_vars['v']->value['price_total'];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['v']->value['num_total'];?>
 </td><td><?php echo date("Y-m-d H:i:s",$_smarty_tpl->tpl_vars['v']->value['time_confirm']);?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value['sys_status'];?>
-</td><td><a href="/index/buy/pay" class="btn  btn-primary">付 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a>  <a href="/index/order/cancel" class="btn  btn-danger">取消订单</a></td></tr>
+</td>
+								<td><?php echo $_smarty_tpl->tpl_vars['v']->value['sys_status'];?>
+</td>
+								<td>
+								<?php if ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 1) {?>
+								<a class="btn btn-primary pay-btn" order_id="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">付 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a> 
+								<a href="/index/order/cancel?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" class="btn btn-danger">取消订单</a>
+								<?php } elseif ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 2) {?>
+								<a class="btn btn-warning" order_id="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a> &nbsp;
+								<?php }?>
+								
+								</td>
+							</tr>
 						<?php
 }
 } else {
@@ -77,16 +92,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 				<div id="modal" class="modal fade" tabindex="-1" role="dialog">
 					  <div class="modal-dialog" role="document">
 						<div class="modal-content">
-						  <form method="post" action="/index/buy/order">
+						 
 						  <div class="modal-body">
 							
 						  </div>
 						  <div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							<button type="button" class="btn btn-primary submit-order">提交</button>
+							<button type="button" class="btn btn-primary check-pay">确认付款</button>
+							
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							
 						  </div>
 						</div>
-                        </form><!-- /.modal-content -->
+                        <!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
 				<!--结束-->

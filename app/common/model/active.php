@@ -15,6 +15,9 @@
 			foreach($res as $k=>$v){
 				$active[$v["id"]]=$v;
 			}
+			if(!$res){
+				return false;
+			}
 			
             return $active;
         }

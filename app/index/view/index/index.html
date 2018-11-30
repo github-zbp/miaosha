@@ -4,6 +4,7 @@
                 
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
+				{if $goods}
 				{foreach $goods as $k=>$v}
                     <div class="col-md-3"  style="margin-top:10px">
                         <div>
@@ -47,6 +48,9 @@
                         </form><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
+				{else}
+					<center><h3>暂无秒杀活动</h3></center>
+				{/if}
 				<!--结束-->
 {include file="../common/footer.html"}                
                 

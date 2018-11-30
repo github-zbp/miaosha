@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 05:58:22
-  from "D:\wamp\www\miaosha\app\admin\view\goods\index.html" */
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 06:23:10
+  from "D:\wamp\www\miaosha\app\admin\view\log\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5c00d17e684a81_10630993',
+  'unifunc' => 'content_5c00d74e924fe1_08527133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '39711ce6c0ee91a40e6716e00a4e8e5574bd49a6' => 
+    'd981fbd55d573493ce2ce25f40c1f197458a4141' => 
     array (
-      0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\goods\\index.html',
-      1 => 1543557501,
+      0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\log\\index.html',
+      1 => 1542763525,
       2 => 'file',
     ),
   ),
@@ -22,57 +22,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5c00d17e684a81_10630993 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"商品管理"), 0, false);
+function content_5c00d74e924fe1_08527133 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"日志管理"), 0, false);
 ?>
 
             <!--中间部分-->
-                <div class="col-md-12"><a class="btn btn-primary" href="/admin/goods/add">添加商品</a></div>
+                
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
                     <table class="table table-bordered table-striped table-hover">
-                        <tr><th>ID</th><th>活动ID</th><th>商品名称</th><th>图片</th><th>价格</th><th>数量</th><th>状态</th><th>操作</th></tr>
-						<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['goods']->value, 'v', false, 'k');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
-?>
-                        <tr>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-</td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['active_id'];?>
-</td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
-</td>
-							<td><img src="/static/images/<?php echo $_smarty_tpl->tpl_vars['v']->value['img'];?>
-" width="200"></td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['price_normal'];?>
- / <?php echo $_smarty_tpl->tpl_vars['v']->value['price_discount'];?>
-</td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['num_total'];?>
- / <?php echo $_smarty_tpl->tpl_vars['v']->value['num_user'];?>
- / <?php echo $_smarty_tpl->tpl_vars['v']->value['num_left'];?>
-</td>
-							<td><?php echo $_smarty_tpl->tpl_vars['v']->value['sys_status'];?>
-</td>
-							<td>
-								<a href="/admin/goods/edit?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-">编辑</a> | 
-								<?php if ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 1) {?>
-								<a href="/admin/goods/delete?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-">下线</a>
-								<?php } else { ?>
-								<a href="/admin/goods/online?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-">上线</a>
-								<?php }?>
-							</td>
-						</tr>
-                        <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-?>
-
+                        <tr><th>ID</th><th>活动ID</th><th>用户ID</th><th>操作</th><th>结果</th><th>详情</th><th>时间</th><th>IP</th><th>状态</th><th>操作</th></tr>
+                        <tr><td>1</td><td>1</td><td>1</td><td>buy</td><td>success</td><td>问答： 浏览器： 商品： 验证：</td><td>2017-07-17 18:27:00</td><td>127.0.0.1</td><td>异常</td><td><a href="/admin/log/handle">确认处理</a></td></tr>
+                        
                         
                     </table>
                 </div>

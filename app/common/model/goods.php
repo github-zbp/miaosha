@@ -35,5 +35,10 @@
 			
             return $goods;
         }
+		
+		public function reduceStock($gid,$num){
+			$sql="update `{$this->table}` set `num_left`=`num_left` - {$num} where `{$this->pk}`={$gid}";
+			$this->db->query($sql);
+		}
     }
 ?>

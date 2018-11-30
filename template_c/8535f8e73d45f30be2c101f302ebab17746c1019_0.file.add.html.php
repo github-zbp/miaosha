@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 13:27:59
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 06:04:37
   from "D:\wamp\www\miaosha\app\admin\view\goods\add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bffe95fb17116_46892177',
+  'unifunc' => 'content_5c00d2f5496497_51526709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8535f8e73d45f30be2c101f302ebab17746c1019' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\goods\\add.html',
-      1 => 1543498035,
+      1 => 1543557872,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bffe95fb17116_46892177 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c00d2f5496497_51526709 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"商品管理"), 0, false);
 ?>
 
@@ -83,6 +83,11 @@ $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cac
                         <input type="text" name="num_total" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['num_total'];?>
 ">
                       </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">库&nbsp;&nbsp;存</label>
+                        <input type="text" name="num_left" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['num_left'];?>
+">
+                      </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">每人限购数量</label>
                         <input type="text" name="num_user" class="form-control"  value="<?php echo $_smarty_tpl->tpl_vars['goods']->value['num_user'];?>
@@ -124,6 +129,10 @@ $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cac
                       <div class="form-group">
                         <label for="exampleInputEmail1">总数量</label>
                         <input type="text" name="num_total" class="form-control"  >
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">库&nbsp;&nbsp;存</label>
+                        <input type="text" name="num_left" class="form-control"  >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">每人限购数量</label>

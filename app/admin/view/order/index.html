@@ -17,11 +17,11 @@
 							<td>{$v['price_discount']} / {$v['price_total']}</td><td>{$v['num_total']}</td><td>{date("Y-m-d H:i:s",$v['time_confirm'])}</td><td>{$v['sys_status']}</td>
 							<td>
 							{if $v['sys_status'] == 2}
-							<a href="/admin/order/sent" class="btn  btn-primary">发 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;货</a>  
+							<a href="/admin/order/sent" class="btn  btn-primary">发 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;货</a>  &nbsp;
 							{else if $v['sys_status'] == 5} <!-- 支付了但发现没有库存了 -->
-							<a href="/admin/order/repay" class="btn  btn-danger">退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a>
+							<button class="btn  btn-danger">订单已取消</button>&nbsp;
 							{else if $v['sys_status'] == 1}
-							待支付中
+							<button class="btn  btn-default">待支付中</button>&nbsp;
 							{/if}
 							</td></tr>
 						{foreachelse}

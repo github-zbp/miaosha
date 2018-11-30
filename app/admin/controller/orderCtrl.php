@@ -27,5 +27,17 @@
             
             $this->display("index",["orders"=>$orders,"description"=>$description]);
         }
+		
+		public function online(){
+			$this->m_goods->sys_status=1;
+			$this->m_goods->save($_GET['id']);
+			redirect("/admin/order");
+		}
+		
+		public function delete(){
+			$this->m_goods->sys_status=2;
+			$this->m_goods->save($_GET['id']);
+			redirect("/admin/order");
+		}
     }
 ?>

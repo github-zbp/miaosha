@@ -115,7 +115,8 @@
             $set=rtrim($set,",");
             $columns[$this->pk]=$this->vals[$this->pk];
             if(count($columns)>0){
-                $sql="update `{$this->table}` set {$set} where `{$this->pk}`=:{$this->pk}";var_dump($sql,$columns);
+                $sql="update `{$this->table}` set {$set} where `{$this->pk}`=:{$this->pk}";
+				// var_dump($sql);
                 return $this->db->query($sql,$columns);
             }
 			

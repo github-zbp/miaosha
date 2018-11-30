@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 12:30:47
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-30 13:14:10
   from "D:\wamp\www\miaosha\app\admin\view\order\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bffdbf752a304_45740138',
+  'unifunc' => 'content_5c0137a2469c06_90670290',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0ab28234deb65e65b81930f4ddc2db3f581e3eab' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\order\\index.html',
-      1 => 1543494646,
+      1 => 1543583649,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bffdbf752a304_45740138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c0137a2469c06_90670290 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"商品管理"), 0, false);
 ?>
 
@@ -56,11 +56,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
 </td>
 							<td>
 							<?php if ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 2) {?>
-							<a href="/admin/order/sent" class="btn  btn-primary">发 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;货</a>  
+							<a href="/admin/order/sent" class="btn  btn-primary">发 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;货</a>  &nbsp;
 							<?php } elseif ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 5) {?> <!-- 支付了但发现没有库存了 -->
-							<a href="/admin/order/repay" class="btn  btn-danger">退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a>
+							<button class="btn  btn-danger">订单已取消</button>&nbsp;
 							<?php } elseif ($_smarty_tpl->tpl_vars['v']->value['sys_status'] == 1) {?>
-							待支付中
+							<button class="btn  btn-default">待支付中</button>&nbsp;
 							<?php }?>
 							</td></tr>
 						<?php

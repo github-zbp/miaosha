@@ -59,7 +59,7 @@
 	*
 	*/
 	function upload($destin,$file,$typearr=[])
-	{
+	{var_dump($file);
 		if(!empty($file))
 		{
 			//目的路径
@@ -83,7 +83,7 @@
 			}
 			//判断文件类型是否被允许！
 			//$typearr=array('jpg','png','gif');
-			$filetype=array_pop(explode('.',$file['name']));
+			$filetype=explode('.',$file['name'])[1];
 			if(count($typearr)>0)
 			{
 				if(!in_array($filetype,$typearr))

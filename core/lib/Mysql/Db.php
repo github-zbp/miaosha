@@ -99,6 +99,7 @@ class Db
     
     //绑定关联参数，并将参数存到属性中
     protected function bindAssoc($params=[]){
+		// var_dump($params);
         foreach($params as $k=>$v){
             $k=":".$k;
             $this->params[$k]=$v;

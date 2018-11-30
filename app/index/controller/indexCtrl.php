@@ -13,10 +13,13 @@
            
            //获取在线活动
            $active=$m_active->getActiveInUse();
-           $active_ids=$m_active->getActiveIds($active);
+		   $active_ids=$goods=null;
+		   if($active){
+			   $active_ids=$m_active->getActiveIds($active);
 		   
-		   //获取上线活动的商品(商品状态没限制)
-           $goods=$m_goods->getGoodsInUse($active_ids);
+			   //获取上线活动的商品(商品状态没限制)
+			   $goods=$m_goods->getGoodsInUse($active_ids);
+		   }
 		   
 		   $this->display("index",["active"=>$active,"goods"=>$goods,"status"=>["online"=>e_goods::ONLINE,"to_be_online"=>e_goods::TO_BE_ONLINE,"downline"=>e_goods::DOWNLINE]]);
         }

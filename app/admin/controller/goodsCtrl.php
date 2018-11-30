@@ -36,15 +36,33 @@
 			redirect("/admin/goods");
 		}
 		
-		// public function doEdit(){
+		public function doEdit(){
 			// 文件上传
-			// $file=$_FILES["file"];
-			// $_POST['img']=upload(ROOT."/static/images/",$file);
+			// var_dump(empty($_FILES["img"]));
+			$file=empty($_FILES["img"]["name"])?false:$_FILES['img'];
+			if($file){
+				$_POST['img']=upload(ROOT."/static/images/",$file);
+			}
 			
-			// $_POST["sys_ip"]=getClientIp();
-			// $this->m_goods->create($_POST);
+			$_POST["sys_ip"]=getClientIp();
+			foreach($_POST as $k=>$v){
+				$this->m_goods->$k=$v;
+			}
+			$this->m_goods->save($_POST['id']);
 			
-			// redirect("/admin/goods");
-		// }
+			redirect("/admin/goods");
+		}
+		
+		public function online(){
+			$this->m_goods->sys_status=1;
+			$this->m_goods->save($_GET['id']);
+			redirect("/admin/goods");
+		}
+		
+		public function delete(){
+			$this->m_goods->sys_status=2;
+			$this->m_goods->save($_GET['id']);
+			redirect("/admin/goods");
+		}
     }
 ?>

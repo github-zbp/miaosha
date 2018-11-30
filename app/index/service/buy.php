@@ -3,6 +3,7 @@
 	use app\common\model\question as m_question;
 	use core\lib\Datasource as ds;
     use app\common\model\goods as m_goods;
+	use app\common\model\order as m_order;
     
 	class buy
 	{
@@ -185,6 +186,7 @@
             //验证用户是否超量购买
             $cache=ds::getCache();
             $history=$cache->get("miaosha_history_".$_COOKIE['uid']."_aid".$active['id']);
+			// var_dump($history);
             
             /*
             * history中记载着用户本次活动秒杀商品的gid和对应数量
@@ -206,7 +208,7 @@
 		/*
 		* 验证商品库存
 		*/
-        private static function checkGoodsStock($goods_params,$goods_info=[]){
+        public static function checkGoodsStock($goods_params,$goods_info=[]){
 			if(!$goods_info){
 				$m_goods=new m_goods();
 				$goods_info=$m_goods->getGoodsForOrder($goods_params);
@@ -224,6 +226,87 @@
 			}
 			
 			return true;
+		}
+		
+		/*
+		* 扣除商品库存
+		*/
+		private static function reduceStock($goods_params){
+			$m_goods=new m_goods();
+			foreach($goods_params as $k=>$v){
+				$m_goods->reduceStock($k,$v);
+			}
+			
+			return true;
+		}
+		
+		/*
+		* 支付订单
+		*
+		*/
+		public static function paidOrder($order_id){
+			$m_order=new m_order();
+			$order=$m_order->get($order_id);
+			$goods_params=self::getGoodsParams($order);
+			
+			//验证库存是否充足
+			self::checkGoodsStock($goods_params);
+			
+			//扣除库存
+			self::reduceStock($goods_params);
+			
+			//修改订单状态
+			$order["sys_status"]=2;
+			$order["time_pay"]=time();
+			foreach($order as $k=>$v){
+				$m_order->$k=$v;
+			}
+			$m_order->save($order['id']);
+			
+			return true;
+		}
+		
+		public static function getGoodsParams($order){
+			$goods_info=json_decode($order['goods_info'],true);
+			
+			foreach($goods_info as $k=>$v){
+				$goods_params[$k]=$v["buy_num"];
+			}
+			
+			return $goods_params;
+		}
+		
+		public static function returnQrcode($order){
+			$weixin_dir=CORE_DIR."/lib/WeixinPay/";
+			require_once $weixin_dir."WxPay.Api.php";
+			require_once $weixin_dir."WxPay.NativePay.php";
+			require_once $weixin_dir.'phpqrcode.php';
+			
+			$logHandler= new \CLogFileHandler($weixin_dir."weixinlogs".date('Y-m-d').'.log');
+			$log = \Log::Init($logHandler, 15);
+			
+			$notify = new \NativePay();
+			$input = new \WxPayUnifiedOrder();
+			$input->SetBody("商品结算");
+			$input->SetAttach("test");
+			$input->SetOut_trade_no($order['order_no'].date("YmdHis"));
+			$input->SetTotal_fee("1");
+			$input->SetTime_start(date("YmdHis"));
+			// $input->SetTime_expire(date("YmdHis", time() + 600));
+			$input->SetGoods_tag("test");
+			$input->SetNotify_url("http://paysdk.weixin.qq.com/notify.php");
+			$input->SetTrade_type("NATIVE");
+			$input->SetProduct_id("123456789");
+
+			$result = $notify->GetPayUrl($input);
+			// var_dump($result);
+			$url=$result["code_url"];
+			
+			if(substr($url, 0, 6) == "weixin"){
+				\QRcode::png($url);
+			}else{
+				 header('HTTP/1.1 404 Not Found');
+			}
 		}
 	}
 ?>
