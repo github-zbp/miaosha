@@ -189,8 +189,8 @@
             return $this->db->query($sql,$params);
         }
 
-        public function count(){
-            return $this->db->query("SELECT COUNT(*) FROM `" . $this->table . '`');
+        public function count($where=""){
+            return $this->db->row("SELECT COUNT(*) FROM `" . $this->table . "` where {$where} ",[],\PDO::FETCH_NUM)[0];
         }
         
         /*
