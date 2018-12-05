@@ -13,5 +13,12 @@
 			return $res;
 		}
 		
+		public function getAllOrders($limit=[]){
+			$limit=implode(",",$limit);
+			$sql="select * from `{$this->table}` limit {$limit}";
+			$res=$this->db->query($sql);
+			
+			return $res;
+		}
     }
 ?>

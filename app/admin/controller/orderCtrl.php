@@ -2,6 +2,7 @@
     namespace app\admin\controller;
     use app\admin\controller\baseCtrl;
     use app\common\model\order as m_order;
+	use core\lib\Mysql\Page;
 	
     class orderCtrl extends baseCtrl{
 		protected $m_order;
@@ -12,7 +13,16 @@
 		}
 		
         public function index(){
-			$orders=$this->m_order->all();
+			$pageRows=5;
+			
+			// $orders=$this->m_order->all();
+			$allRows=$this->m_order->count();
+			$page=new Page($allRows,$pageRows);
+			$limit=$page->limit();
+			$links=$page->getLinks();
+			
+			$orders=$this->m_order->getAllOrders($limit);
+			
 			$description=[];
             foreach($orders as $k=>$v){
                 $orders[$k]["goods_info"]=array_values(json_decode($v["goods_info"],true));
@@ -25,7 +35,7 @@
             }
 			
             
-            $this->display("index",["orders"=>$orders,"description"=>$description]);
+            $this->display("index",["orders"=>$orders,"description"=>$description,"links"=>$links]);
         }
 		
 		public function online(){

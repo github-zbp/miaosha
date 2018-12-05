@@ -190,7 +190,10 @@
         }
 
         public function count($where=""){
-            return $this->db->row("SELECT COUNT(*) FROM `" . $this->table . "` where {$where} ",[],\PDO::FETCH_NUM)[0];
+			if($where){
+				$where="where ".trim($where,"where");
+			}
+            return $this->db->row("SELECT COUNT(*) FROM `" . $this->table . "` {$where} ",[],\PDO::FETCH_NUM)[0];
         }
         
         /*

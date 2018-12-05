@@ -1,18 +1,18 @@
 <?php
-/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-11-29 12:30:32
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-12-05 12:11:50
   from "D:\wamp\www\miaosha\app\admin\view\question\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-22',
-  'unifunc' => 'content_5bffdbe8375383_89839301',
+  'unifunc' => 'content_5c07c086f027d7_87848370',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8a72f68cb067904d23d815e15694c226bb94a734' => 
     array (
       0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\question\\index.html',
-      1 => 1542766889,
+      1 => 1544011909,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../common/footer.html' => 1,
   ),
 ),false)) {
-function content_5bffdbe8375383_89839301 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c07c086f027d7_87848370 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"问题管理"), 0, false);
 ?>
 
@@ -39,22 +39,61 @@ $_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cac
                             <th>状态</th>
                             <th>操作</th>
                         </tr>
-
+						
+						<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['questions']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
                         <tr>				
-                            <td>2</td>
-                            <td>2</td>
-                            <td>下面哪个是正确的省会城市</td>
-                            <td><span>1&nbsp;河北&nbsp;&nbsp;石家庄</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2&nbsp;河南&nbsp;&nbsp;郑州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>3&nbsp;山西&nbsp;&nbsp;太原</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>4&nbsp;陕西&nbsp;&nbsp;西安</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>5&nbsp;甘肃&nbsp;&nbsp;兰州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>6&nbsp;江西&nbsp;&nbsp;南昌</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>7&nbsp;浙江&nbsp;&nbsp;杭州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>8&nbsp;广东&nbsp;&nbsp;广州</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>9&nbsp;江苏&nbsp;&nbsp;南京</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>10&nbsp;安徽&nbsp;&nbsp;合肥</span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td>正常</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['active_id'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+</td>
+                            <td><span>1&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask1'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer1'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask2'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer2'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>3&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask3'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer3'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>4&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask4'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer4'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>5&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask5'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer5'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>6&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask6'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer6'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>7&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask7'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer7'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>8&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask8'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer8'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>9&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask9'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer9'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>10&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['ask10'];?>
+&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['answer10'];?>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sys_status'];?>
+</td>
                             <td>
-                                <a href="/admin/question/edit">编辑</a>
-					                     | <a href="/admin/question/delete">删除</a>
+                                <a href="/admin/question/edit?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">编辑</a>
+					                     | <a href="/admin/question/delete?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">删除</a>
                     				</td>
 			</tr>
 
                         
+						<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+?>
+
                         
                     </table>
+					<div><?php echo $_smarty_tpl->tpl_vars['links']->value;?>
+</div>
                 </div>
                 <!--结束-->
 <?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

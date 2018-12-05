@@ -10,13 +10,13 @@
 		public $checkAction=["index"=>"needLogin","cancel"=>"needLogin"];
 		
         public function index(){
-			$pageRows=1;
+			$pageRows=5;
 			
 			//获取分页链接
 			$m_order=new m_order();
 			$allRows=$m_order->count("uid = {$this->uid} and sys_status != 5");
 			$page=new Page($allRows,$pageRows);
-			$limit=$page->limit();var_dump($limit);
+			$limit=$page->limit();
 			$links=$page->getLinks();
 			
 			//取数据

@@ -11,5 +11,13 @@
 			
 			return $res;
 		}
+		
+		public function getAllQue($limit=[]){
+			$limit=implode(",",$limit);
+			$sql="select * from `{$this->table}` limit {$limit}";
+			$res=$this->db->query($sql);
+			
+			return $res;
+		}
     }
 ?>

@@ -80,12 +80,12 @@
 		
 		private function getPageForm(){
 			$str="<form style='float:left;font-size:16px;margin:20px 50px;width:300px'>";
-			$str.="<div class='form-group'><select name='page'>";
+			$str.="<div class='form-group'><div class='col-md-2'><select name='page' style='margin-top:3px'>";
 			for($i=1;$i<=$this->allPages;$i++){
 				$str.=$this->currentPage==$i?"<option value='{$i}'  selected>{$i}</option>":"<option value='{$i}'>{$i}</option>";
 			}
-			$str.="</select>";
-			$str.="<button type='submit' class='btn btn-default btn-sm'>跳转</button></div>";
+			$str.="</select></div>";
+			$str.="<div class='col-md-2'><button type='submit' class='btn btn-default btn-sm'>跳转</button></div></div>";
 			$str.="</form>";
 			return $str;
 		}

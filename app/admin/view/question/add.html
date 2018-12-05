@@ -3,96 +3,199 @@
                 
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
-                    <form class="col-md-8" method="post" action="">
+				{if isset($question)}
+                    <form class="col-md-8" method="post" action="/admin/question/doEdit">
+					<input type="hidden" class="form-control" name="id"  value="{$question['id']}">
                         <h2>编辑问答信息</h2>
                         <br/>
                       <div class="form-group">
                         <label for="exampleInputEmail1">所属活动id</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="active_id" value="{$question['active_id']}">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">问题内容</label>
+                        <input type="text" class="form-control"  name="title" value="{$question['title']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题1</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">答案2</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">问题2</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">答案3</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">问题3</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">答案4</label>
-                        <input type="text" class="form-control"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">问题4</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="ask1" value="{$question['ask1']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案1</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="answer1" value="{$question['answer1']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题2</label>
+                        <input type="text" class="form-control"  name="ask2" value="{$question['ask2']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案2</label>
+                        <input type="text" class="form-control"  name="answer2" value="{$question['answer2']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题3</label>
+                        <input type="text" class="form-control"  name="ask3" value="{$question['ask3']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案3</label>
+                        <input type="text" class="form-control"  name="answer3" value="{$question['answer3']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题4</label>
+                        <input type="text" class="form-control"  name="ask4" value="{$question['ask4']}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案4</label>
+                        <input type="text" class="form-control" name="answer4" value="{$question['answer4']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题5</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="ask5" value="{$question['ask5']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案5</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="answer5" value="{$question['answer5']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题6</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="ask6" value="{$question['ask6']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案6</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="answer6" value="{$question['answer6']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题7</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="ask7" value="{$question['ask7']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案7</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="answer7" value="{$question['answer7']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题8</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="ask8" value="{$question['ask8']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案8</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control" name="answer8" value="{$question['answer8']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题9</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="ask9" value="{$question['ask9']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案9</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="answer9" value="{$question['answer9']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">问题10</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="ask10" value="{$question['ask10']}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">答案10</label>
-                        <input type="text" class="form-control"  >
+                        <input type="text" class="form-control"  name="answer10" value="{$question['answer10']}">
                       </div>
                       <button type="submit" class="btn btn-primary">保存</button>
                       <a class="btn btn-default" href="/admin/question">返回</a>
                     </form>
+					{else}
+					<form class="col-md-8" method="post" action="/admin/question/doAdd">
+					
+                        <h2>编辑问答信息</h2>
+                        <br/>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">所属活动id</label>
+                        <input type="text" class="form-control"  name="active_id">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">问题内容</label>
+                        <input type="text" class="form-control"  name="title" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题1</label>
+                        <input type="text" class="form-control" name="ask1" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案1</label>
+                        <input type="text" class="form-control"  name="answer1">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题2</label>
+                        <input type="text" class="form-control"  name="ask2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案2</label>
+                        <input type="text" class="form-control"  name="answer2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题3</label>
+                        <input type="text" class="form-control"  name="ask3">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案3</label>
+                        <input type="text" class="form-control"  name="answer3">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题4</label>
+                        <input type="text" class="form-control"  name="ask4">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案4</label>
+                        <input type="text" class="form-control" name="answer4" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题5</label>
+                        <input type="text" class="form-control" name="ask5" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案5</label>
+                        <input type="text" class="form-control" name="answer5" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题6</label>
+                        <input type="text" class="form-control" name="ask6" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案6</label>
+                        <input type="text" class="form-control" name="answer6" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题7</label>
+                        <input type="text" class="form-control"  name="ask7">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案7</label>
+                        <input type="text" class="form-control" name="answer7" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题8</label>
+                        <input type="text" class="form-control"  name="ask8">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案8</label>
+                        <input type="text" class="form-control" name="answer8" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题9</label>
+                        <input type="text" class="form-control"  name="ask9">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案9</label>
+                        <input type="text" class="form-control"  name="answer9">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题10</label>
+                        <input type="text" class="form-control"  name="ask10">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案10</label>
+                        <input type="text" class="form-control"  name="answer10">
+                      </div>
+                      <button type="submit" class="btn btn-primary">保存</button>
+                      <a class="btn btn-default" href="/admin/question">返回</a>
+                    </form>
+					{/if}
                 </div>
                 <!--结束-->
 {include file="../common/footer.html"}                

